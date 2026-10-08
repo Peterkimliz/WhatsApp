@@ -23,18 +23,14 @@ struct MainTabView: View {
                 TabViewItems.calls.title,
                 systemImage: TabViewItems.calls.icon
             ) {
-                Text(
-                    "Calls"
-                )
+                CallsTabScreen()
             }
             
             Tab(
                 TabViewItems.communities.title,
                 systemImage: TabViewItems.communities.icon
             ) {
-                Text(
-                    "Communities"
-                )
+               CommunitesTabScreen()
             }
             
             Tab(
