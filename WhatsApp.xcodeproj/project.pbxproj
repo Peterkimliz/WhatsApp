@@ -6,6 +6,17 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1877EBDA307F618700091A54 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBD9307F618700091A54 /* FirebaseAuth */; };
+		1877EBDC307F618700091A54 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBDB307F618700091A54 /* FirebaseAuthCombine-Community */; };
+		1877EBDE307F618700091A54 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBDD307F618700091A54 /* FirebaseCore */; };
+		1877EBE0307F618700091A54 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBDF307F618700091A54 /* FirebaseDatabase */; };
+		1877EBE2307F618700091A54 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBE1307F618700091A54 /* FirebaseFirestore */; };
+		1877EBE4307F618700091A54 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBE3307F618700091A54 /* FirebaseFirestoreCombine-Community */; };
+		1877EBE6307F618700091A54 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBE5307F618700091A54 /* FirebaseStorage */; };
+		1877EBE8307F618700091A54 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBE7307F618700091A54 /* FirebaseStorageCombine-Community */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		18A2D46030758071009C12D1 /* WhatsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -22,6 +33,14 @@
 		18A2D45D30758071009C12D1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				1877EBDA307F618700091A54 /* FirebaseAuth in Frameworks */,
+				1877EBDE307F618700091A54 /* FirebaseCore in Frameworks */,
+				1877EBE8307F618700091A54 /* FirebaseStorageCombine-Community in Frameworks */,
+				1877EBE0307F618700091A54 /* FirebaseDatabase in Frameworks */,
+				1877EBE4307F618700091A54 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				1877EBE6307F618700091A54 /* FirebaseStorage in Frameworks */,
+				1877EBE2307F618700091A54 /* FirebaseFirestore in Frameworks */,
+				1877EBDC307F618700091A54 /* FirebaseAuthCombine-Community in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -60,6 +79,16 @@
 				18A2D46230758071009C12D1 /* WhatsApp */,
 			);
 			name = WhatsApp;
+			packageProductDependencies = (
+				1877EBD9307F618700091A54 /* FirebaseAuth */,
+				1877EBDB307F618700091A54 /* FirebaseAuthCombine-Community */,
+				1877EBDD307F618700091A54 /* FirebaseCore */,
+				1877EBDF307F618700091A54 /* FirebaseDatabase */,
+				1877EBE1307F618700091A54 /* FirebaseFirestore */,
+				1877EBE3307F618700091A54 /* FirebaseFirestoreCombine-Community */,
+				1877EBE5307F618700091A54 /* FirebaseStorage */,
+				1877EBE7307F618700091A54 /* FirebaseStorageCombine-Community */,
+			);
 			productName = WhatsApp;
 			productReference = 18A2D46030758071009C12D1 /* WhatsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -88,6 +117,9 @@
 			);
 			mainGroup = 18A2D45730758071009C12D1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 18A2D46130758071009C12D1 /* Products */;
 			projectDirPath = "";
@@ -320,6 +352,60 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1877EBD9307F618700091A54 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		1877EBDB307F618700091A54 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		1877EBDD307F618700091A54 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		1877EBDF307F618700091A54 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		1877EBE1307F618700091A54 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		1877EBE3307F618700091A54 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		1877EBE5307F618700091A54 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		1877EBE7307F618700091A54 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18A2D45830758071009C12D1 /* Project object */;
 	validationLevel = 1;

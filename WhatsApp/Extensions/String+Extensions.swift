@@ -10,7 +10,7 @@ import SwiftUI
 extension String{
     
     var isWhiteSpaceOrEmpty:Bool{
-        trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        return trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
     

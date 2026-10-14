@@ -6,7 +6,7 @@
 //
 
 
-
+import SwiftUI
  struct ChannellItemView:View{
     let index: Int
     
@@ -34,7 +34,7 @@
         HStack {
             Text("Qatester \(index)")
                 .bold()
-                .font(.title2)
+                .font(.title3)
                 .lineLimit(1)
             Spacer()
             

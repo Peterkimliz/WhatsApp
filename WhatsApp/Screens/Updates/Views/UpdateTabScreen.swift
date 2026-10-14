@@ -18,6 +18,7 @@ struct UpdateTabScreen: View {
                    .foregroundStyle(.whatsAppBlack)
 
                     StatusHeaderView()
+                    
                         .listRowBackground(Color.clear)
                         .listRowSeparator(.hidden)
                         
@@ -111,6 +112,7 @@ private struct StatusHeaderView : View {
         HStack (alignment: .top){
             Image(systemName: "circle.dashed")
                 .foregroundStyle(.blue)
+            Spacer()
             
             VStack(alignment: .leading){
                Text("Use status to share photos,text and videos that disappear in 24 hours.")
@@ -120,12 +122,16 @@ private struct StatusHeaderView : View {
                     .foregroundStyle(.blue)
                 
             }
+            Spacer()
             
             
             Image(systemName: "xmark")
                 .foregroundStyle(.gray)
             
-        }.padding()
+        
+        }
+        .frame(maxWidth: .infinity)
+        .padding()
         .background(.whatsAppWhite)
         .clipShape(RoundedRectangle(cornerRadius: 10))
     

@@ -34,12 +34,17 @@ struct MainTabView: View {
             }
             
             Tab(
+                TabViewItems.chats.title,
+                systemImage: TabViewItems.chats.icon
+            ) {
+                ChannellTabScreen()
+            }
+            
+            Tab(
                 TabViewItems.settings.title,
                 systemImage: TabViewItems.settings.icon
             ) {
-                Text(
-                    "Settings"
-                )
+                SettingsTabScreen()
             }
             
             
