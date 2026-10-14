@@ -1,0 +1,22 @@
+
+
+
+# Xcode build files
+DerivedData/
+build/
+
+# Personal settings / User Interface state
+userdata/
+xcuserdata/
+*.xcuserstate
+
+# System files
+.DS_Store
+
+# External dependencies (if using CocoaPods)
+Pods/
+
+# Ignore Firebase Configuration
+GoogleService-Info.plist
+
+**/GoogleService-Info.plist
