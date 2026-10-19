@@ -7,12 +7,28 @@
 
 import SwiftUI
 
-struct View_Extensions: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+
+private struct BubbleTrailingViewModifier: ViewModifier{
+    let direction:MessageDirection
+    func body(content: Content) -> some View {
+        
+        content.overlay(alignment: direction == .sent ? .bottomTrailing : .bottomLeading) {
+            BubbleTrailingView(direction: direction)
+        }
+        
     }
 }
 
-#Preview {
-    View_Extensions()
+
+extension View{
+    
+    
+    func applyTrailingTail(direction:MessageDirection) -> some View{
+        self.modifier(BubbleTrailingViewModifier(direction: direction))
+    }
+    
+    
+    
+    
 }

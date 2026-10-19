@@ -4,93 +4,46 @@
 //
 //  Created by Apple on 18/10/2026.
 //
-
 import SwiftUI
 
-struct BubbleImageView: View {
+struct BubbleAudioView: View {
     let messageItem:MessageItem
+    @State private var sliderValue:Double = 0
+    @State private var sliderValueRange:ClosedRange<Double> = 0...20
+    
+    
     var body: some View {
-        
-        
-        HStack{
-            
-            if(messageItem.direction == .sent){
-                Spacer()
-            }
-            
-            
+        VStack(alignment: .trailing){
             HStack{
-                if(messageItem.direction == .sent){
-                    
-                    shareButton()
-                }
+                playButton()
+                Slider(value: $sliderValue, in:sliderValueRange)
+                Text("00:07")
+                    .foregroundStyle(.gray)
                 
-                imageAndTextView()
-                    .overlay {
-                        playButton()
-                            .opacity( messageItem.type == .video ? 1 : 0)
-                    }
-                
-                if(messageItem.direction == .received){
-                    
-                    shareButton()
-                }
             }
-            
-            if(messageItem.direction == .received){
-                Spacer()
-            }
-        
-        
-        }.padding(.leading, messageItem.direction == .sent ? 100 : 5)
+            .padding(10)
+            .background(.gray.opacity(0.2))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            dateAndReadImage()
+        }
+      
+        .padding(4)
+        .background(messageItem.background)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .applyTrailingTail(direction: messageItem.direction)
+        .padding(.leading, messageItem.direction == .sent ? 100 : 5)
         .padding(.trailing, messageItem.direction == .sent ? 5 : 100)
         .frame(maxWidth: .infinity,alignment: messageItem.horizontalAlignment)
     }
     
-    
-    private func imageAndTextView()->some View{
-        VStack(alignment: .leading){
-            Image(.stubImage0)
-                .resizable()
-                .scaledToFill()
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-            
-            
-            HStack{
-                Text(messageItem.message)
-                    .font(.system(size: 14))
-                Spacer()
-                dateAndReadImage()
-            }
-            
-        }
-        .padding(6)
-        .background(messageItem.background)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .applyTrailingTail(direction: messageItem.direction)
-        
-    }
-    
-    private func shareButton()-> some View{
-        Button {
-            
-        } label: {
-            Image(systemName: "arrowshape.turn.up.forward.fill")
-                .padding(10)
-                .foregroundStyle(.white)
-                .background(Color(.systemGray3))
-                .clipShape(Circle())
-        }
 
-        
-    }
     
     private func playButton()-> some View{
      
         Image(systemName: "play.fill")
                 .padding(10)
-                .foregroundStyle(.white)
-                .background(Color(.systemGray4))
+                .foregroundStyle(messageItem.direction == .sent ? .black : .white)
+                .background(messageItem.direction == .sent ? .white : .green)
                 .clipShape(Circle())
     
 
@@ -121,8 +74,8 @@ struct BubbleImageView: View {
     
     ScrollView {
         
-        BubbleImageView(messageItem: .messagesStubs[4])
-        BubbleImageView(messageItem: .messagesStubs[5])
+        BubbleAudioView(messageItem: .messagesStubs[4])
+        BubbleAudioView(messageItem: .messagesStubs[5])
     }
-    .background(Color.gray)
+    .background(Color.gray.opacity(0.1))
 }

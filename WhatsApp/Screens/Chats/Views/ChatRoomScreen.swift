@@ -9,13 +9,21 @@ import SwiftUI
 
 struct ChatRoomScreen: View {
     var body: some View {
-        ScrollView{
-            LazyVStack{
-                ForEach(0..<100) { _ in
-                    Text("These are the messages")
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 50)
-                        .background(Color(.systemGray6))
+        ZStack{
+            Image(.chatbackground)
+                .resizable()
+            
+            ScrollView(showsIndicators: false){
+                ForEach(MessageItem.messagesStubs) { item    in
+                    
+                    switch item.type{
+                    case .text:
+                        BubbleTextView(messageItem: item)
+                    case .photo, .video:
+                        BubbleImageView(messageItem: item)
+                    case .audio:
+                        BubbleAudioView(messageItem: item)
+                    }
                 }
                 
                 

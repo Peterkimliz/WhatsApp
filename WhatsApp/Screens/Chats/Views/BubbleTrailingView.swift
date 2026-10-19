@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct BubbleTrailingView: View {
+    let direction:MessageDirection
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(direction == .sent ? .outgoingTail : .incomingTail)
+            .resizable()
+            .renderingMode(.template)
+            .frame(width: 10,height: 10)
+            .foregroundStyle( direction == .sent ? .bubbleGreen : .bubbleWhite)
+            .offset(y:2)
     }
 }
 
 #Preview {
-    BubbleTrailingView()
+    
+    ScrollView{
+        BubbleTrailingView(direction: .sent)
+        BubbleTrailingView(direction: .received)
+    }.frame(maxWidth: .infinity)
+        .background(.gray.opacity(0.3))
 }
