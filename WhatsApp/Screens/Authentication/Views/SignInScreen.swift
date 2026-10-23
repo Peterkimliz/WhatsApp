@@ -36,6 +36,10 @@ struct SignInScreen: View {
                 
                 
                 AuthButton(message: "Sign In") {
+                    Task{
+                       await vm.handleLogin()
+                        
+                    }
             
                 }.disabled(vm.loginButtonDisabled)
                 HStack {
@@ -81,6 +85,18 @@ struct SignInScreen: View {
                         .padding(.bottom,10)
                 }
         
+            }.overlay{
+                if(vm.loggingIn){
+                    ProgressView {
+                        Text("Logging in ...")
+                    }
+                }
+            }
+            .alert("Error While Signing In",
+                   isPresented: $vm.loginErrorState.showError) {
+                
+            } message: {
+                Text(vm.loginErrorState.message)
             }
             .frame(maxWidth: .infinity,maxHeight: .infinity)
             

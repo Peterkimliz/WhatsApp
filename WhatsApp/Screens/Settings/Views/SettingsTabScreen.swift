@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsTabScreen: View {
+    @State private var showLogoutDialog = false
     var body: some View {
         NavigationStack{
             List{
@@ -28,34 +29,49 @@ struct SettingsTabScreen: View {
                 Section{
                     SettingItemView(item: .help)
                     SettingItemView(item: .friend)
-              
                     
                     
-                    HStack{
-                        Image(systemName: "iphone.and.arrow.forward")
-                            .resizable()
-                            .frame(width: 20, height:20)
-                            .foregroundStyle(.red)
-
-                        Text("Sign Out")
-                            .font(.title3)
-                            .foregroundStyle(.red)
-                            .bold()
+                    Button{
+                        showLogoutDialog = true
+                    }label:{
+                        HStack{
+                            Image(systemName: "iphone.and.arrow.forward")
+                                .resizable()
+                                .frame(width: 20, height:20)
+                                .foregroundStyle(.red)
+                            
+                            Text("Sign Out")
+                                .font(.title3)
+                                .foregroundStyle(.red)
+                            .bold()}
                         
-                      
+                        
+                        
                     }
-                    
-                
                 }
                 
             }.navigationTitle("Settings")
+            .alert("Log Out", isPresented: $showLogoutDialog) {
+                Button("Cancel", role: .cancel) { }
+                Button("Log Out", role: .destructive) {
+                   
+                    Task{
+                     showLogoutDialog = false
+                         await  AuthViewModel().handleSignOut()
+                    }
+                    
+                    
+                }
+            } message: {
+                Text("Are you sure you want to log out?")
+            }
+
         }
     }
     
     
     
 }
-
 private struct SettingsHeader:View{
     
     var body: some View{

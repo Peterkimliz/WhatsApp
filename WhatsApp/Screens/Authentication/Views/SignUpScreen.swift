@@ -14,8 +14,7 @@ struct SignUpScreen: View {
     
     var body: some View {
         @Bindable var authVm = vm
-        
-        NavigationStack{
+    
             VStack(alignment: .leading,spacing:20){
                 Spacer()
                 Text("Create Your Account")
@@ -27,6 +26,9 @@ struct SignUpScreen: View {
                 AuthField(text: $authVm.registerUsername, type: .username)
                 AuthField(text: $authVm.registerPassword, type: .password)
                 AuthButton(message: "Sign Up") {
+                    Task{
+                       await vm.handleSignUp()
+                    }
                     
                 }.disabled(authVm.registerButtonDisabled)
                 
@@ -73,8 +75,15 @@ struct SignUpScreen: View {
             }
             .navigationBarBackButtonHidden()
             .frame(maxWidth: .infinity,maxHeight: .infinity)
+            .alert("Error While Creating your Account",
+                   isPresented: $authVm.registerErrorState.showError) {
+                
+            } message: {
+                Text(authVm.registerErrorState.message)
+            }
+
         }
-    }
+    
 }
 
 #Preview {

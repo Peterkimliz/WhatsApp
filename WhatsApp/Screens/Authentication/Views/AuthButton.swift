@@ -30,7 +30,7 @@ struct AuthButton: View {
             .shadow(color:.gray.opacity(0.3),radius: 8)
             
             
-        }.disabled(isEnabled)
+        }
     }
 }
 
