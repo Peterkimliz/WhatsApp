@@ -33,7 +33,8 @@ struct CallsTabScreen: View {
                 
                 
             }.navigationTitle("Calls")
-            .searchable(text: $searchText)
+                .searchable(text: $searchText,placement:.toolbarPrincipal)
+            
             .toolbar {
                 leadingToolBarItem()
                 principalToolBarItem()

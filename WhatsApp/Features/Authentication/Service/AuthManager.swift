@@ -53,9 +53,12 @@ final class AuthService : AuthManager{
     
     private init(){
         Task{
+    
             await autoLoginUser()
+            
         }
     }
+    
     
     static let shared: AuthManager = AuthService()
     
@@ -136,7 +139,7 @@ extension AuthService{
                 "bio": user.bio as Any,
                 "profileImageUrl":user.profileImageUrl as Any
             ]
-           try await Database.database().reference().child("users").child(user.id).setValue(userDict)
+            try await  FirebaseConstants.userReference.child(user.id).setValue(userDict)
         }catch{
             print("🔐 Failed to save user info to database  \(error.localizedDescription)")
             throw AuthErrors.failedToSaveUserToDatabase(message: error.localizedDescription)
@@ -147,7 +150,7 @@ extension AuthService{
     private func fetchUserData(){
         guard let uid = Auth.auth().currentUser?.uid else{ return }
         
-        Database.database().reference().child("users").child(uid).observe(.value) {[weak self]snapshot in
+        FirebaseConstants.userReference.child(uid).observe(.value) {[weak self]snapshot in
             guard let userDictionary = snapshot.value as? [String:Any] else { return }
             let user = UserItem(dictionary: userDictionary)
             self?.authState.send(AuthState.loggedIn(user))

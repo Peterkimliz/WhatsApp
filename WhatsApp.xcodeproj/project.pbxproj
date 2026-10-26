@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1849013E308F329300FC9A32 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 1849013D308F329300FC9A32 /* GoogleSignIn */; };
+		18490140308F329300FC9A32 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1849013F308F329300FC9A32 /* GoogleSignInSwift */; };
 		1877EBDA307F618700091A54 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBD9307F618700091A54 /* FirebaseAuth */; };
 		1877EBDC307F618700091A54 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBDB307F618700091A54 /* FirebaseAuthCombine-Community */; };
 		1877EBDE307F618700091A54 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1877EBDD307F618700091A54 /* FirebaseCore */; };
@@ -21,9 +23,22 @@
 		18A2D46030758071009C12D1 /* WhatsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		184900AF308E57D800FC9A32 /* Exceptions for "WhatsApp" folder in "WhatsApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 18A2D45F30758071009C12D1 /* WhatsApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		18A2D46230758071009C12D1 /* WhatsApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				184900AF308E57D800FC9A32 /* Exceptions for "WhatsApp" folder in "WhatsApp" target */,
+			);
 			path = WhatsApp;
 			sourceTree = "<group>";
 		};
@@ -38,9 +53,11 @@
 				1877EBE8307F618700091A54 /* FirebaseStorageCombine-Community in Frameworks */,
 				1877EBE0307F618700091A54 /* FirebaseDatabase in Frameworks */,
 				1877EBE4307F618700091A54 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				18490140308F329300FC9A32 /* GoogleSignInSwift in Frameworks */,
 				1877EBE6307F618700091A54 /* FirebaseStorage in Frameworks */,
 				1877EBE2307F618700091A54 /* FirebaseFirestore in Frameworks */,
 				1877EBDC307F618700091A54 /* FirebaseAuthCombine-Community in Frameworks */,
+				1849013E308F329300FC9A32 /* GoogleSignIn in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -88,6 +105,8 @@
 				1877EBE3307F618700091A54 /* FirebaseFirestoreCombine-Community */,
 				1877EBE5307F618700091A54 /* FirebaseStorage */,
 				1877EBE7307F618700091A54 /* FirebaseStorageCombine-Community */,
+				1849013D308F329300FC9A32 /* GoogleSignIn */,
+				1849013F308F329300FC9A32 /* GoogleSignInSwift */,
 			);
 			productName = WhatsApp;
 			productReference = 18A2D46030758071009C12D1 /* WhatsApp.app */;
@@ -119,6 +138,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1849013C308F329300FC9A32 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 18A2D46130758071009C12D1 /* Products */;
@@ -278,6 +298,7 @@
 				DEVELOPMENT_TEAM = 6SHPQ5CSP4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WhatsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -310,6 +331,7 @@
 				DEVELOPMENT_TEAM = 6SHPQ5CSP4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WhatsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -354,6 +376,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1849013C308F329300FC9A32 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.1.0;
+			};
+		};
 		1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -365,6 +395,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1849013D308F329300FC9A32 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1849013C308F329300FC9A32 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		1849013F308F329300FC9A32 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1849013C308F329300FC9A32 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
 		1877EBD9307F618700091A54 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1877EBD8307F618700091A54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

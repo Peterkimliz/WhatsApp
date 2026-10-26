@@ -60,7 +60,7 @@ struct UpdateTabScreen: View {
             }.navigationTitle("Updates")
             .listStyle(.grouped)
             
-            .searchable(text: $searchString)
+            .searchable(text: $searchString,placement:.toolbarPrincipal)
             
         }
     }
