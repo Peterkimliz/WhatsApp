@@ -11,6 +11,8 @@ struct ChatPartnerPickerScreen: View {
     @State private var searchText = ""
     @Environment(\.dismiss) private var dismiss
     @State private var chatPartnerPickerVm = ChatPartnerPickerViewModel()
+    var onChannelCreation: (ChannelItem)->Void
+    
     
     var body: some View {
         NavigationStack(path:$chatPartnerPickerVm.navStack){
@@ -33,7 +35,14 @@ struct ChatPartnerPickerScreen: View {
                     }
                     else{
                         ForEach(chatPartnerPickerVm.users){ item  in
-                            ChatPartnerRowView(item: item)
+                            
+                            
+                            Button{
+                                onChannelCreation(ChannelItem.channelItem)
+                            }label: {
+                                ChatPartnerRowView(item: item)
+                            }
+                            
                             
                             
                         }
@@ -144,5 +153,7 @@ extension ChatPartnerPickerScreen{
 
 
 #Preview {
-    ChatPartnerPickerScreen()
+    ChatPartnerPickerScreen { item in
+        
+    }
 }

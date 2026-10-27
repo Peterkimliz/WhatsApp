@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChatRoomScreen: View {
+    let channel:ChannelItem
     var body: some View {
         ZStack{
             Image(.chatbackground)
@@ -84,6 +85,6 @@ private extension ChatRoomScreen{
 
 #Preview {
     NavigationStack{
-        ChatRoomScreen()
+        ChatRoomScreen(channel: .channelItem)
     }
 }
