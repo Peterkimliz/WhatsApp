@@ -52,7 +52,7 @@ private extension ChatRoomScreen{
                 Circle()
                     .frame(width: 30,height: 30)
                 
-                Text("Qauser 1")
+                Text(channel.title)
                     .font(.headline)
                     .bold()
                     .fixedSize(horizontal: true, vertical: false)

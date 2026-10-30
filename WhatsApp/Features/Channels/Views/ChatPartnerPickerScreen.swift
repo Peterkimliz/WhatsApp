@@ -38,8 +38,10 @@ struct ChatPartnerPickerScreen: View {
                             
                             
                             Button{
-                                onChannelCreation(ChannelItem.channelItem)
-                            }label: {
+                                chatPartnerPickerVm.createDirectChannel(user: item) { channel in
+                                    onChannelCreation(channel)}
+                                
+                                }label: {
                                 ChatPartnerRowView(item: item)
                             }
                             
@@ -69,6 +71,10 @@ struct ChatPartnerPickerScreen: View {
                 .toolbar {
                     cancelButton()
                 }
+            
+                .onAppear{
+                    chatPartnerPickerVm.selectedChatPartners.removeAll()
+                }
                 .navigationDestination(for: ChannelCreationRoute.self) { route in
                     
                     switch route{
@@ -76,7 +82,9 @@ struct ChatPartnerPickerScreen: View {
                         GroupMemberSelectionScreen()
                             .environment(chatPartnerPickerVm)
                     case .setUpGroup:
-                        NewGroupSetUpScreen()
+                        NewGroupSetUpScreen{channel in
+                            onChannelCreation(channel)
+                        }
                             .environment(chatPartnerPickerVm)
                     }
                     

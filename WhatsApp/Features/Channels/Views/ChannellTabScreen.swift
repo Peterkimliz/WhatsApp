@@ -21,13 +21,13 @@ struct ChannellTabScreen: View {
                     .padding([.leading],10)
                 
                 
-                ForEach(0..<4){ index in
+                ForEach(vm.channels){ channel in
                     
                     
                     NavigationLink {
-                        ChatRoomScreen(channel: .channelItem)
+                        ChatRoomScreen(channel:channel)
                     } label: {
-                        ChannellItemView(index: index)
+                        ChannellItemView(channel: channel)
                     }
 
                     

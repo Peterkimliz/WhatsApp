@@ -8,7 +8,7 @@
 
 import SwiftUI
  struct ChannellItemView:View{
-    let index: Int
+    let channel: ChannelItem
     
     var body: some View{
         HStack(alignment: .top) {
@@ -18,7 +18,7 @@ import SwiftUI
             VStack(alignment: .leading) {
                 headerTextView()
                 
-                Text("Voice Message")
+                Text(channel.lastMessage)
                     .font(.callout)
                     .bold()
                     .foregroundStyle(.gray)
@@ -32,7 +32,7 @@ import SwiftUI
     private func headerTextView()->some View{
         
         HStack {
-            Text("Qatester \(index)")
+            Text(channel.title)
                 .bold()
                 .font(.title3)
                 .lineLimit(1)

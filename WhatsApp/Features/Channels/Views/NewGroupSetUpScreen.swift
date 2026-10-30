@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewGroupSetUpScreen: View {
     @Environment(ChatPartnerPickerViewModel.self) private var vm
+    var onCreation:(ChannelItem)->Void
     
     
     var body: some View {
@@ -17,14 +18,14 @@ struct NewGroupSetUpScreen: View {
         List{
             
             Section{
-               HStack{
+                HStack{
                     Image(systemName: "camera")
-                        .foregroundStyle(.blue) 
+                        .foregroundStyle(.blue)
                         .padding(10)
                         .background(Color(.systemGray5))
                         .clipShape(Circle())
-                   
-                   TextField("Group Name ", text: $vmBindable.name,axis: .vertical )
+                    
+                    TextField("Group Name ", text: $vmBindable.channelName,axis: .vertical )
                 }
             }
             
@@ -72,6 +73,10 @@ extension NewGroupSetUpScreen{
         ToolbarItem(placement: .topBarTrailing) {
             Button{
                 
+                vm.createGroupChannel(channelName: vm.channelName) { channel in
+                    onCreation(channel)
+                }
+                
             }label: {
                 Text("Create")
                     .bold()
@@ -85,6 +90,8 @@ extension NewGroupSetUpScreen{
 
 #Preview {
     NavigationStack{
-        NewGroupSetUpScreen()
+        NewGroupSetUpScreen {channelItem in
+            
+        }
     }
 }

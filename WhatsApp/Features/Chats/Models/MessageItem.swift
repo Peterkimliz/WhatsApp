@@ -44,10 +44,3 @@ extension MessageItem{
     ]
     
 }
-enum MessageType{
-    case text, video, photo,audio
-}
-
-enum MessageDirection{
-    case sent, received
-}
