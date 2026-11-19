@@ -9,13 +9,21 @@ import SwiftUI
 
 struct ChatRoomScreen: View {
     let channel:ChannelItem
+    @State private var viewModel:ChatroomViewModel
+    
+    init(channel: ChannelItem) {
+        self.channel = channel
+        _viewModel = State(wrappedValue: ChatroomViewModel(channel: channel))
+    }
+    
+    
     var body: some View {
         ZStack{
             Image(.chatbackground)
                 .resizable()
             
             ScrollView(showsIndicators: false){
-                ForEach(MessageItem.messagesStubs) { item    in
+                ForEach(viewModel.messages) { item   in
                     
                     switch item.type{
                     case .text:
@@ -31,7 +39,9 @@ struct ChatRoomScreen: View {
             }
             
         }.safeAreaInset(edge: .bottom, content: {
-            TextInputArea()
+            TextInputArea(textMessage: $viewModel.textMessage) {
+                viewModel.sendMessage()
+            }
         })
         .toolbar(.hidden, for:.tabBar)
         .toolbar {
@@ -85,6 +95,6 @@ private extension ChatRoomScreen{
 
 #Preview {
     NavigationStack{
-        ChatRoomScreen(channel: .channelItem)
+        ChatRoomScreen(channel: .placeholder)
     }
 }

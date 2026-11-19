@@ -12,8 +12,12 @@ import SwiftUI
     
     var body: some View{
         HStack(alignment: .top) {
-            Circle()
-                .frame(width: 45,height: 45)
+            Image(systemName: channel.isDirectChannel
+                  ? "person.fill" : "person.2.fill" )
+                  .frame(width: 45,height: 45)
+                  .foregroundStyle(.white)
+                  .background(Color(.systemGray))
+                  .clipShape(Circle())
             
             VStack(alignment: .leading) {
                 headerTextView()

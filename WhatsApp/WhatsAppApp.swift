@@ -15,7 +15,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
       FirebaseApp.configure()
       Database.database().isPersistenceEnabled = true
-        Database.database().reference().keepSynced(true)
+      Database.database().reference().keepSynced(true)
 
       return true
     }

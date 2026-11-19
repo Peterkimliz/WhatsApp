@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct TextInputArea: View {
-    @State private var text = ""
+    @Binding var textMessage:String
+    var onSendButtonClicked:()->Void
     
     
     var sendButtonDisabled:Bool{
-        return text.isWhiteSpaceOrEmpty
+        return textMessage.isWhiteSpaceOrEmpty
     }
     
     var body: some View {
@@ -20,7 +21,7 @@ struct TextInputArea: View {
             
             imagePickerButton()
             audioRecorderButton()
-            TextField("write message.", text:$text ,axis: .vertical)
+            TextField("write message.", text:$textMessage ,axis: .vertical)
                 .padding(6)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
@@ -72,7 +73,7 @@ struct TextInputArea: View {
     
     private func chatSendButton()-> some View{
         Button {
-        
+        onSendButtonClicked()
         } label: {
             Image(systemName: "arrow.up")
                 .fontWeight(.heavy)
@@ -86,5 +87,7 @@ struct TextInputArea: View {
 }
 
 #Preview {
-    TextInputArea()
+    TextInputArea(textMessage: .constant("")){
+        
+    }
 }

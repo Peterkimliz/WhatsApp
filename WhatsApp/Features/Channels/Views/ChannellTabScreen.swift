@@ -23,9 +23,8 @@ struct ChannellTabScreen: View {
                 
                 ForEach(vm.channels){ channel in
                     
-                    
-                    NavigationLink {
-                        ChatRoomScreen(channel:channel)
+                    Button{
+                        vm.onChannelCreation(channel: channel)
                     } label: {
                         ChannellItemView(channel: channel)
                     }
@@ -42,11 +41,12 @@ struct ChannellTabScreen: View {
             .listStyle(.plain)
             .searchable(text: $searchText,placement:.toolbarPrincipal)
             .animation(.easeInOut, value: vm.navigateToChatScreen)
+    
             .sheet(isPresented:$vm.showChatPartnerPicker){
                 ChatPartnerPickerScreen(onChannelCreation: vm.onChannelCreation)
             }
             .navigationDestination(isPresented: $vm.navigateToChatScreen, destination: {
-                if let channel = vm.channel{
+                if let channel = vm.newChannel{
                     ChatRoomScreen(channel: channel)
                 }
             })
